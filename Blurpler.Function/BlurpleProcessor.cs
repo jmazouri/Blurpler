@@ -62,8 +62,7 @@ public class BlurpleProcessor : IImageProcessor<Rgba32>
         for (int x = 0; x < source.Width; x++)
         for (int y = 0; y < source.Height; y++)
         {
-            Rgba32 thisPixel = new Rgba32();
-            source[x, y].ToRgba32(ref thisPixel);
+            var thisPixel = source[x, y];
 
             avgR += thisPixel.R;
             avgG += thisPixel.G;

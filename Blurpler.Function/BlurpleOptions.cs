@@ -19,14 +19,14 @@ public class BlurpleOptions
             throw new ArgumentOutOfRangeException("Threshold", "Threshold must be between 10 and 0");
         }
 
-        if (Preblur > 10 || Preblur < 0.00001)
+        if (Preblur > 10 || Preblur < 0)
         {
-            throw new ArgumentOutOfRangeException("Preblur", "Preblur must be between 10 and 0.00001");
+            throw new ArgumentOutOfRangeException("Preblur", "Preblur must be between 10 and 0");
         }
 
-        if (SourceImage.Length > 100000)
+        if (SourceImage.Length > 5000000)
         {
-            throw new ArgumentOutOfRangeException("ImageBase64", "Image, must be less than 100000 bytes");
+            throw new ArgumentOutOfRangeException("ImageBase64", "Image, must be less than 5mb");
         }
     }
 }
