@@ -2,6 +2,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Advanced;
 using SixLabors.Primitives;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing.Processors;
 
 public class BlurpleProcessor : IImageProcessor<Rgba32>
 {

@@ -10,7 +10,7 @@ public class BlurpleOptions
     public string ImageBase64 { get; set; }
 
     private byte[] _sourceImage;
-    public byte[] SourceImage => _sourceImage ?? (_sourceImage = Convert.FromBase64String(ImageBase64));
+    public byte[] GetSourceImage() => _sourceImage ?? (_sourceImage = Convert.FromBase64String(ImageBase64));
 
     public void Validate()
     {
@@ -24,7 +24,7 @@ public class BlurpleOptions
             throw new ArgumentOutOfRangeException("Preblur", "Preblur must be between 10 and 0");
         }
 
-        if (SourceImage.Length > 5000000)
+        if (GetSourceImage().Length > 5000000)
         {
             throw new ArgumentOutOfRangeException("ImageBase64", "Image, must be less than 5mb");
         }

@@ -11,6 +11,8 @@ using System.Linq;
 using System;
 using System.Net.Http;
 using System.Diagnostics;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Processing.Convolution;
 
 namespace Blurpler
 {
@@ -57,7 +59,7 @@ namespace Blurpler
 
         public static MemoryStream MakeBlurpleFromStream(BlurpleOptions opt)
         {
-            Image<Rgba32> img = Image.Load(opt.SourceImage);
+            Image<Rgba32> img = Image.Load(opt.GetSourceImage());
             img.Mutate(x => 
             {
                 x.GaussianBlur(opt.Preblur <= 0 ? 0.00001f : opt.Preblur)
